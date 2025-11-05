@@ -4,21 +4,21 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.AppEvnts, Vcl.StdCtrls, Vcl.ExtCtrls, System.Actions, Vcl.ActnList;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.AppEvnts, System.Actions, Vcl.ActnList;
 
 type
   TFormMain = class(TForm)
+    ActionList: TActionList;
+    ActionExceptionAccessViolation: TAction;
     ApplicationEvents: TApplicationEvents;
     MemoExceptionLogging: TMemo;
     PanelActions: TPanel;
-    ActionList: TActionList;
-    ActionExceptionAccessViolation: TAction;
     Button1: TButton;
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
     procedure ActionExceptionAccessViolationExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-
+    { Private declarations }
   public
     { Public declarations }
   end;
@@ -27,9 +27,6 @@ var
   FormMain: TFormMain;
 
 implementation
-
-uses
-  ExceptionStackTrace.Utils;
 
 {$R *.dfm}
 
@@ -59,9 +56,9 @@ end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
-  Exception.GetStackInfoStringProc := GetStackInfoStringProc;
-  Exception.GetExceptionStackInfoProc := GetExceptionStackInfoProc;
-  Exception.CleanUpStackInfoProc := CleanUpStackInfoProc;
+//  Exception.GetStackInfoStringProc := GetStackInfoStringProc;
+//  Exception.GetExceptionStackInfoProc := GetExceptionStackInfoProc;
+//  Exception.CleanUpStackInfoProc := CleanUpStackInfoProc;
 end;
 
 end.
