@@ -1,6 +1,8 @@
+// JCL_DEBUG_EXPERT_INSERTJDBG ON
 program VCLExceptionMonitorAndLogging;
 
 uses
+  JclDebug,
   Vcl.Forms,
   Form.Main in 'Form.Main.pas' {FormMain};
 
